@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .pink{
+            color: pink;
+            background-color: yellow;
+        }
+        .width{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img :src="imgUrl" :alt="name" :style="{width: imgWidth,border:'10px solid red'}"> -->
+        <!-- <img :src="imgUrl" :alt="name" :style="[{width:imgWidth},imgStyle]"> -->
+        <!-- <h3 :class="[color1,size1]">{{ name }}</h3> -->
+        <!-- <h3 :class="{pink: true}">{{ name }}</h3> -->
+        <!-- <h3 :class="[{pink: h3Flag},size1]">{{ name }}</h3> -->
+        <button @click="handelClick">点击</button>
+        <h3 :class="h3ClassArr[h3Index]">{{ name }}</h3>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data:{
+                name: "Web前端开发之JavaScript(Js)精英课堂【渡一教育】",
+                imgUrl: "http://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLBsSud06XlZnJACsTWd7OSA5phIFPRTNibFBeuT8jRjy00Jb5ticSEKYUnpUYdBCicH2U/356?tp=webp",
+                color1:'pink',
+                size1: 'width',
+                h3Flag: true,
+                imgWidth:'200px',
+                imgStyle:{
+                    border: 'solid 10px red'
+                },
+                h3ClassArr:['red','green','yellow'],
+                h3Index: 0,
+                h3Count: 0
+            },
+            methods:{
+                handelClick(){
+                    this.h3Index = ++this.h3Count % 3;
+                }
+            }
+        })
+        // vm.$mount('#app')
+        // vm.a = 100;
+        // console.log(vm.a);
+        // console.log(vm.$el.innerText);
+        // vm.$nextTick(()=>{
+        //     console.log(vm.$el.innerText)
+        // })
+        
+    </script>
+</body>
+</html>
